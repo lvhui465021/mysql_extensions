@@ -1,9 +1,10 @@
 contrib/*/src/*.o
 contrib/*/src/*.so
+contrib/*/*.so
 contrib/*/.deps/
 contrib/mysql_parser/src/mys_gram.c
 contrib/mysql_parser/src/mys_gram.h
 contrib/mysql_parser/src/mys_scan.c
 contrib/mysql_parser/src/mys_kwlist_d.h
-t/tmp_check/
-t/log/
+contrib/*/t/tmp_check/
+contrib/*/t/log/
