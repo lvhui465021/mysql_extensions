@@ -48,6 +48,11 @@ src/mys_kwlist_d.h: $(PG_SRC)/src/include/parser/mysql/mys_kwlist.h
 
 src/mys_keywords.o: src/mys_kwlist_d.h
 
+# mys_parser.c includes the installed mys_gramparse.h, which in turn includes
+# the Bison-generated bare mys_gram.h.  PGXS does not infer that transitive
+# dependency, so declare it to make parallel builds deterministic.
+src/mys_parser.o: src/mys_gram.h
+
 clean: clean-mysgen
 clean-mysgen:
 	rm -f src/mys_gram.c src/mys_gram.h src/mys_scan.c src/mys_kwlist_d.h
