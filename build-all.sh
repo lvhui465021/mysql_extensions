@@ -31,7 +31,7 @@ PGCONFIG="$PREFIX/bin/pg_config"
 
 for ext in mysql_parser mysm aux_mysql; do
     echo "===== building $ext ====="
-    (cd "contrib/$ext" && \
+    (cd "$SCRIPT_DIR/contrib/$ext" && \
         make USE_PGXS=1 PG_CONFIG="$PGCONFIG" PG_SRC="$KERNEL_DIR" \
              -j"$(nproc)" all install)
 done
